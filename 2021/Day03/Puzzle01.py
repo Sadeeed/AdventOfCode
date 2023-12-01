@@ -9,7 +9,7 @@ with open(input_file) as fp:
         binary_input_list.append(line.strip('\n'))
 
 
-def get_gamma_epsilon_rates(bin_input):
+def get_power_consumption(bin_input):
     new_list = []
     gamma_value = []
     epsilon_value = []
@@ -50,4 +50,4 @@ def list_to_int(num_list):
 
             
 
-get_gamma_epsilon_rates(binary_input_list)
+get_power_consumption(binary_input_list)
