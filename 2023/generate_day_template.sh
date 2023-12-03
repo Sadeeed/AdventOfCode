@@ -11,14 +11,14 @@
 
 if [ "$1" -lt 10 ]
 then
-    mkdir "Day0$1"
+  FOLDER_NAME="Day0$1"
 else
-    mkdir "Day$1"
+  FOLDER_NAME="Day$1"
 fi
-#mkdir "Day0$1"
-touch "Day$1/input.txt"
-touch "Day$1/test_input.txt"
-touch "Day$1/utils.py"
-touch "Day$1/Puzzle01.py"
-touch "Day$1/Puzzle02.py"
-printf "def get_input(filename):\n    with open(filename) as f:\n        lines = f.readlines()\n        f.close()\n    return lines\n" > "Day$1/utils.py"
+mkdir "$FOLDER_NAME"
+touch "$FOLDER_NAME/input.txt"
+touch "$FOLDER_NAME/test_input.txt"
+touch "$FOLDER_NAME/utils.py"
+touch "$FOLDER_NAME/Puzzle01.py"
+touch "$FOLDER_NAME/Puzzle02.py"
+printf "def get_input(filename):\n    with open(filename) as f:\n        lines = f.readlines()\n        f.close()\n        lines = [line.strip() for line in lines]\n    return lines\n" > "$FOLDER_NAME/utils.py"
