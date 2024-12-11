@@ -2,10 +2,13 @@ from utils import get_input
 
 input = get_input('input.txt')[0]
 
+# answer = 90428939430
+# expected = 6331212425418
+
 def get_memory_representation(input):
     input = input
-    length = len(input)
-    print(f"Input: {input} \nLength: {length}")
+    # length = len(input)
+    # print(f"Input: {input} \nLength: {length}")
     memory = []
     for idx, i in enumerate(input):
         block_id = 0 if idx == 0 else idx // 2
@@ -17,8 +20,7 @@ def get_memory_representation(input):
     return memory
 
 memory_representation = "".join(get_memory_representation(input))
-print(f"Memory Representation: {memory_representation} \n")
-
+# print(f"Memory Representation: {memory_representation} \n")
 memory_representation_list = list(memory_representation)
 
 while "." in memory_representation_list:
@@ -27,7 +29,7 @@ while "." in memory_representation_list:
     memory_representation_list[ptr_dot] = last_element
 
 memory_representation = "".join(memory_representation_list)
-print(f"Memory Representation: {memory_representation} \n")
+print(f"Memory Representation: {memory_representation_list} \n")
 
 total = 0
 
