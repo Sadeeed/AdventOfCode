@@ -2,16 +2,16 @@ from utils import get_input
 from functools import cache
 from collections import Counter
 
-input = Counter(get_input("test_input2.txt")[0].split())
+input = Counter(get_input("input.txt")[0].split())
 
 def evolve(n, input):
     evolution = Counter()
     if n == 0:
-        print(f"Final Evolution: {input.keys()}, \nTotal Stones: {sum(input.values())}")
+        print(f"Final Evolution: {input}, \nTotal Stones: {sum(input.values())}")
         return
     for i in input:
         if i == "0":
-            evolution[i] += evolution.get(i, input[i]) + 1
+            evolution['1'] = evolution.get('1', 0) + input[i]
         elif len(i) % 2 == 0:
             length = len(i)
             left_stone, right_stone = list(
@@ -20,16 +20,12 @@ def evolve(n, input):
                     [int("".join(i[: length // 2])), int("".join(i[(length // 2) :]))],
                 )
             )
-            # evolution.extend(i)
             # print(f"Left Stone: {left_stone}, Right Stone: {right_stone}")
-            evolution[left_stone] = evolution.get(left_stone, input[i]) + 1
-            evolution[right_stone] = evolution.get(right_stone, input[i]) + 1
+            evolution[left_stone] = evolution.get(left_stone, 0) + input[i]
+            evolution[right_stone] = evolution.get(right_stone, 0) + input[i]
         else:
-            # i = str(int(i) * 2024)
-            # evolution.append(i)
-            evolution[str(int(i) * 2024)] = evolution.get(str(int(i) * 2024), input[i]) + 1
-    print(f"Evolution {n}")
+            evolution[str(int(i) * 2024)] = evolution.get(str(int(i) * 2024), 0) + input[i]
+    print(f"Evolution {n}: {evolution}\n")
     evolve(n - 1, evolution)
 
-
-evolve(6, input)
+evolve(75, input)

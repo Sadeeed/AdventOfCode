@@ -20,4 +20,4 @@ def evolve(n, input):
     print(f"Evolution {n}: {evolution}\n")
     evolve(n-1, evolution)
 
-evolve(25, input)
+evolve(6, input)
