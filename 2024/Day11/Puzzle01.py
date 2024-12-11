@@ -1,8 +1,6 @@
 from utils import get_input
 
-input = get_input('input.txt')[0].split()
-
-evoultion_count = 0
+input = get_input('test_input2.txt')[0].split()
 
 def evolve(n, input):
     evolution = []
